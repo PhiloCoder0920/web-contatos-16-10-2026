@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/api";
+import "../styles/site.css"
 
 export default function Contatos() {
   const [contatos, setContatos] = useState([]);
@@ -48,13 +49,14 @@ export default function Contatos() {
         <button type="submit">Adicionar</button>
       </form>
 
-      <ul>
+      <div>
         {contatos.map((c) => (
-          <li key={c._id}>
-            {c.nome} - {c.email}
-          </li>
+          <div key={c._id} className="card">
+          <span className="label">{c.nome}</span>
+          <span className="label">{c.email}</span>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
